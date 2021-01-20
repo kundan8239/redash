@@ -49,16 +49,12 @@ describe("Dashboard Parameters", () => {
         // This is needed to grant the element will have finished loading
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(150);
-        cy.get(".ant-btn:enabled:not(.ant-btn-loading)")
-          .contains("OK")
-          .click();
+        cy.contains("button", "OK").click();
       })
       .then(() => {
         cy.get("@Popover").should("not.be.visible");
         if (closeMappingMenu) {
-          cy.get(".ant-btn:enabled:not(.ant-btn-loading)")
-            .contains("OK")
-            .click();
+          cy.contains("button", "OK").click();
         }
       });
   };
